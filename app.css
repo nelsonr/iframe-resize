@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body.fill {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.squares {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex: 1 1 auto;
+  height: 200px;
+  transition: height 300ms ease-out;
+  background-color: #EEE;
+  margin: 0 20px;
+  outline: 2px solid greenyellow;
+  cursor: pointer;
+}
+
+.square--expanded {
+  height: 400px;
+}
+
+iframe {
+  width: 100%;
+  outline: 1px solid hotpink;
+}
