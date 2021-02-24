@@ -15,18 +15,26 @@ const IframeResize = {
      * @param {HTMLElement} elem The element to trigger the iframe resize when transitioned
      */
     resizeOnTransition: function (elem) {
-        let requestAnimationFrameId = null;
+        let animationFrameId = null;
+
+        const start = function (ev) {
+            if (ev.propertyName === 'height') {
+                update();
+            }
+        };
 
         const update = function () {
-            requestAnimationFrameId = requestAnimationFrame(update);
+            animationFrameId = requestAnimationFrame(update);
             this.resize();
         }.bind(this);
 
-        const stop = function () {
-            cancelAnimationFrame(requestAnimationFrameId);
+        const stop = function (ev) {
+            if (ev.propertyName === 'height') {
+                cancelAnimationFrame(animationFrameId);
+            }
         };
 
-        elem.addEventListener('transitionstart', update);
+        elem.addEventListener('transitionstart', start);
         elem.addEventListener('transitionend', stop);
     }
 };

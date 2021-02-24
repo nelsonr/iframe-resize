@@ -27,9 +27,10 @@ main {
   flex: 1 0 auto;
 }
 
-p {
+label.iframe-label {
   color: hotpink;
-  margin-bottom: 4px;
+  font-size: 10px;
+  text-transform: uppercase;
 }
 
 iframe {
@@ -68,11 +69,14 @@ iframe {
 .accordion-item__body {
   height: 0;
   overflow: hidden;
-  transition: height 300ms ease-out;
+  transition: all 300ms ease-out;
   background-color: #FFF;
+}
+
+.accordion-item--expanded .accordion-item__body {
+  background-color: wheat;
 }
 
 .accordion-item__content {
   padding: 10px;
-  border-top: 1px solid #DDD;
 }
